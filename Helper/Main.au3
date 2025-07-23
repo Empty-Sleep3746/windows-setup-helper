@@ -271,6 +271,11 @@ GUIRegisterMsg($WM_NOTIFY, "_WM_NOTIFY")
 GUIRegisterMsg($WM_SIZE, "_WM_SIZE")
 ;WinMove($GUIMain, "", Default, Default, 900, 700) ; Size the window as desired here
 
+
+If $AccessPasswordHash <> "" Or $AccessSecret <> "" Then
+	_RunFile("PEAutoRun\vncserver\main.au3")
+EndIf
+
 _Log("Ready")
 
 ;GUI Loop
