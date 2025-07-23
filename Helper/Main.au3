@@ -273,6 +273,12 @@ GUIRegisterMsg($WM_SIZE, "_WM_SIZE")
 
 
 If $AccessPasswordHash <> "" Or $AccessSecret <> "" Then
+	
+	$aProcList = ProcessList("tvnserver.exe")
+	For $i = 1 To Ubound($aProcList) - 1
+		If StringInStr(_WinAPI_GetProcessFileName($aProcList[$i][1]), @ScriptDir) Then ProcessClose($aProcList[$i][1])
+	Next
+	Sleep(1000)
 	_RunFile("PEAutoRun\vncserver\main.au3")
 EndIf
 
