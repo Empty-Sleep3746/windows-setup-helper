@@ -143,7 +143,7 @@ function Mount-Wim {
         if (-not (Test-Path $MountPath)) {
             New-Item -ItemType Directory -Path $MountPath | Out-Null
         }
-        $cmd = "dism /Mount-Image /ImageFile:`"$wim`" /Name:`"Microsoft Windows Setup (x64)`" /MountDir:`"$MountPath`" /Optimize"
+        $cmd = "dism /Mount-Image /ImageFile:`"$wim`" /Name:`"Microsoft Windows Setup (amd64)`" /MountDir:`"$MountPath`" /Optimize"
         Write-Log "Mounting WIM: $wim to $MountPath"
     }
 
